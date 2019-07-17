@@ -1,0 +1,101 @@
+{
+    "name": "Synergy DBL",
+    "scopeName": "source.dbl",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#storage"
+        },
+        {
+            "include": "#expressions"
+        },
+        {
+            "include": "#declarations"
+        },
+        {
+            "include": "#variables"
+        }
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+                {
+                    "name": "keyword.control.dbl",
+                    "match": "\\b(if|IF|If|THEN|Then|then|ELSE|Else|else|WHILE|While|while|FOR|For|for|FOREACH|ForEach|Foreach|foreach|RETURN|Return|return|BEGIN|Begin|begin|END|End|end|GOTO|GoTo|Goto|goto|XCALL|Xcall|XCall|xcall|CALL|Call|call|CLEAR|Clear|clear|CLOSE|Close|close)\\b"
+                },
+                {
+                    "name": "keyword.control.export.dbl",
+                    "match": "\\b([.]?((end|END)?(subroutine|function|main|method|namespace|structure|class|region|enum|interface|property|SUBROUTINE|FUNCTION|MAIN|METHOD|NAMESPACE|STRUCTURE|CLASS|REGION|ENUM|INTERFACE|PROPERTY))|proc|end|PROC|END)\\b"
+                },
+                {
+                    "name": "keyword.control.import.dbl",
+                    "match": "\\b[.]include|repository|record|endrecord|import|\\.INCLUDE|REPOSITORY|RECORD|ENDRECORD|IMPORT\\b"
+                },
+                {
+                    "name": "keyword.control.other.dbl",
+                    "match": "\\b(endparams|nop|freturn|mreturn|return|xreturn|xcall|implements|extends)\\b"
+                },
+                {
+                    "name": "keyword.type.dbl",
+                    "match": "\\b[,]?((a|d|p|A|D|P)[0-9*]*[.]*[0-9]*|(i|I)(1|2|4|8)|(boolean|byte|decimal|double|float|int|IntPtr|long|object|sbyte|short|string|uint|UIntPtr|ulong|ushort|void|n|[\\^]val|BOOLEAN|BYTE|DECIMAL|DOUBLE|FLOAT|INT|INTPTR|LONG|OBJECT|SBYTE|SHORT|STRING|UINT|UINTPTR|ULONG|USHORT|VOID|N|[\\^]VAL))\\b"
+                }
+            ]
+        },
+        "storage": {
+            "patterns": [
+                {
+                    "name": "storage.modifier.dbl",
+                    "match": "\\b(public|private|protected|static|virtual|override|readwrite|readonly|partial|external)\\b"
+                }
+            ]
+        },
+		"strings": {
+			"name": "string.quoted.double.dbl",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.dbl",
+					"match": "\\\\."
+				}
+			]
+        },
+        "comments": {
+            "name": "comment.line.dbl",
+            "begin": ";",
+            "end": "(?=$)"
+        },
+        "expressions": {
+            "patterns": [
+                {
+					"name": "keyword.operator.comparison.dbl",
+					"match": "\\.eq\\.|\\.ne\\.|\\.eqs\\.|\\.le\\.|\\.ge\\.|\\.les\\.|\\.ges\\.|\\.nes\\.|==|!=|<|>|<=|>="
+                }
+            ]
+        },
+        "declarations": {
+            "patterns": [
+                {
+                    "name": "storage.type.class.dbl",
+                    "match": "record|structure|class|namespace|group"
+                }
+            ]
+        },
+        "variables": {
+            "patterns": [
+                {
+                    "name": "variable.language.dbl",
+                    "match": "\\bthis|parent\\b"
+                }
+            ]
+        }
+    }
+}

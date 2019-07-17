@@ -1,19 +1,29 @@
 {
-    "OPEN_CHANNEL": {
-        "prefix": "open",
-        "body": [
-            "open(${1:number}, ${2:record},${3:label})"
-        ],
-        "description": "Open Channel"
+    "OPEN_CHANNEL":{
+		"prefix": "open",
+		"body": [
+			"open(${1,number}, ${2:record},${3:label})"
+		],
+		"description": "Open Channel"
     },
-    "USING_LOOP": {
+    "USING_LOOP":{
         "prefix": "using",
-        "body": [
-            "\tusing $1 select",
-            "\t\t($2), begin",
+        "body": ["\tusing $1 select",
+            "\t\t($2),  begin",
             "\t\tend",
             "\tendusing\r"
         ],
         "description": "Using Loop"
+    },
+    "SUBROUTINE":{
+        "prefix": "subroutine",
+        "body": [
+            "\tsubroutine $1",
+            "\tendparams",
+            "\tproc",
+            "\t\t$2",
+            "\tendsubroutine"
+        ],
+        "description": "Subroutine declaration"
     }
 }

@@ -1,4 +1,7 @@
-# synergyvsc README
+# Synergy DBL Extension README
 
-This is a simple Visual Studio Code extension for Synergy/DE.
+This is the Synergy DBL extension for VSCode to integrate basic language functionality for Synergy DBL (aka DIBOL).
+
+## Features
+
 
