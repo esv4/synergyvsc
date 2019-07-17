@@ -1,0 +1,116 @@
+{
+	"name": "synergyvsc",
+	"displayName": "SynergyVSC",
+	"description": "",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.36.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:synergyvsc.synshell",
+		"onCommand:synergyvsc.loadRepository",
+		"onCommand:synergyvsc.unloadRepository",
+		"onCommand:synergyvsc.compileProgram",
+		"onCommand:synergyvsc.runProgramDebug"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"languages": [
+			{
+				"id": "SynergyDE",
+				"configuration": "./language-configuration.json",
+				"extensions": [
+					".web",
+					".sub",
+					".acc",
+					".win"
+				]
+			}
+		],
+		"grammars": [
+			{
+				"language": "SynergyDE",
+				"scopeName": "source.synergyde",
+				"path": "./syntaxes/synergyde.tmLanguage.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "synergyvsc.synshell",
+				"title": "Synergy Shell"
+			},
+			{
+				"command": "synergyvsc.loadRepository",
+				"title": "Load Repository (Schema -> ISM)"
+			},
+			{
+				"command": "synergyvsc.unloadRepository",
+				"title": "Unload Repository (ISM -> Schema)"
+			},
+			{
+				"command": "synergyvsc.compileProgram",
+				"title": "Compile Program"
+			},
+			{
+				"command": "synergyvsc.runProgramDebug",
+				"title": "Run in Debug Mode"
+			}
+		],
+		"snippets": [
+			{
+				"language": "SynergyDE",
+				"path": "./snippets/snippets.json"
+			}
+		],
+		"menus": {
+			"explorer/context": [
+				{
+					"when": "resourceFilename == repository.schema",
+					"command": "synergyvsc.loadRepository",
+					"group": "Group@1"
+				},
+				{
+					"when": "resourceFilename == repository.schema",
+					"command": "synergyvsc.unloadRepository",
+					"group": "Group@1"
+				},
+				{
+					"when": "resourceExtname == .acc",
+					"command": "synergyvsc.compileProgram",
+					"group": "Group@1"
+				},
+				{
+					"when": "resourceExtname == .win",
+					"command": "synergyvsc.compileProgram",
+					"group": "Group@1"
+				},
+				{
+					"when": "resourceExtname == .win",
+					"command": "synergyvsc.runProgramDebug",
+					"group": "Group@1"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.36.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"tslint": "^5.12.1",
+		"vscode-test": "^1.0.0-next.0"
+	}
+}

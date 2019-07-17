@@ -1,0 +1,71 @@
+{
+    "name": "SynergyDE",
+    "scopeName": "source.synergyde",
+    "patterns": [
+        {
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#comments"
+        },
+        {
+            "include": "#expressions"
+        },
+        {
+            "include": "declarations"
+        }
+    ],
+    "repository": {
+        "keywords": {
+            "patterns": [
+                {
+                    "name": "keyword.control.synergyde",
+                    "match": "\\b(if|IF|If|THEN|Then|then|ELSE|Else|else|WHILE|While|while|FOR|For|for|FOREACH|Foreach|foreach|RETURN|Return|return|BEGIN|Begin|begin|END|End|end|GOTO|GoTo|Goto|goto|XCALL|XCall|xcall|CALL|Call|call|CLEAR|Clear|clear|CLOSE|Close|close)\\b"
+                },
+                {
+                    "name": "keyword.control.export.synergyde",
+                    "match": "\\.subroutine"
+                },
+                {
+                    "name": "keyword.control.import.synergyde",
+                    "match": "\\.include|\\.INCLUDE|repository|REPOSITORY|record|RECORD"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.synergyde",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.synergyde",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "comments": {
+            "name": "comment.line.synergyde",
+            "begin": ";",
+            "end": "(?=$)"
+        },
+        "expressions": {
+            "patterns": [
+                {
+                    "name": "keyword.operator.comparison.synergyde",
+                    "match": "\\.eq\\.|\\.ne\\.|\\.eqs\\.|\\.le\\.|\\.ge\\.|\\.les\\.|\\.ges\\.|\\.nes\\.|==|!="
+                }
+            ]
+        },
+        "declarations": {
+            "patterns": [
+                {
+                    "name": "storage.type.class.synergyde",
+                    "match": "record"
+                }
+            ]
+        }
+    }
+}
