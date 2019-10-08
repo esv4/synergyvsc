@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: myPrivateAgents
+  name: default
   demands: agent.os -equals Windows_NT
 
 steps:
