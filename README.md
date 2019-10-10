@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repo contains the source and tests for integrating the Synergy DBL language into VS Code.
+This repo contains the source code and tests for integrating the Synergy DBL language into Visual Studio Code.
 
 ## How to Use
 
